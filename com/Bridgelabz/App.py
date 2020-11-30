@@ -2,6 +2,14 @@ import re
 
 
 class Validator:
+    valid_emailIds = ["abc@yahoo.com", "abc-100@yahoo.com",
+                      "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com",
+                      "abc@gmail.com.com", "abc+100@gmail.com"]
+
+    invalid_emailIds = ["abc@.com.my", "abc123@gmail.a", "abc123@.com",
+                        "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc..2002@gmail.com", "abc.@gmail.com",
+                        "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"]
+
     FIRST_AND_LAST_NAME_PATTERN = "^[A-Z]{1}[a-zA-Z]{2,30}$"
     EMAIL_PATTERN = "^[a-zA-Z][a-zA-Z0-9_\\-+]*[.]{0,1}[a-zA-Z0-9_\\-+]{1,}[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,}[.]{0,}[a-zA-Z]*$"
     MOBILE_NUMBER_PATTERN = "^[+]{1}[0-9]{2}[ ][0-9]{10}"
@@ -75,6 +83,18 @@ class Validator:
             print("Invalid Password !!!")
             Validator.collect_and_validate_password()
 
+    @classmethod
+    def validate_multiple_email(cls, email_id_array):
+        """
+        Objective:taking multiple email Id and matching it with respective pattern
+        :rtype: void
+        """
+        for email in email_id_array:
+            if re.fullmatch(Validator.EMAIL_PATTERN, email):
+                print(f"{email}\t\t:Valid")
+            else:
+                print(f"{email}\t\t:Invalid")
+
 
 if __name__ == "__main__":
     print("Welcome to User Registration Program")
@@ -83,3 +103,5 @@ if __name__ == "__main__":
     Validator.collect_and_validate_email()
     Validator.collect_and_validate_mobile_number()
     Validator.collect_and_validate_password()
+    Validator.validate_multiple_email(Validator.valid_emailIds)
+    Validator.validate_multiple_email(Validator.invalid_emailIds)

@@ -5,6 +5,7 @@ class Validator:
     FIRST_AND_LAST_NAME_PATTERN = "^[A-Z]{1}[a-zA-Z]{2,30}$"
     EMAIL_PATTERN = "^[a-zA-Z][a-zA-Z0-9_\\-+]*[.]{0,1}[a-zA-Z0-9_\\-+]{1,}[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,}[.]{0,}[a-zA-Z]*$"
     MOBILE_NUMBER_PATTERN = "^[+]{1}[0-9]{2}[ ][0-9]{10}"
+    PASSWORD_PATTERN_RULE1 = "^[a-zA-Z0-9]{8,}$"
 
     @classmethod
     def collect_and_validate_first_name(cls):
@@ -58,6 +59,19 @@ class Validator:
             print("Invalid Mobile Number !!!")
             Validator.collect_and_validate_mobile_number()
 
+    @classmethod
+    def collect_and_validate_password(cls):
+        """
+        Objective:taking password and matching it with respective pattern
+        :rtype: void
+        """
+        password = input("Enter Password : ")
+        if re.fullmatch(Validator.PASSWORD_PATTERN_RULE1, password):
+            print(f"Password Validated")
+        else:
+            print("Invalid Password !!!")
+            Validator.collect_and_validate_password()
+
 
 if __name__ == "__main__":
     print("Welcome to User Registration Program")
@@ -65,3 +79,4 @@ if __name__ == "__main__":
     Validator.collect_and_validate_last_name()
     Validator.collect_and_validate_email()
     Validator.collect_and_validate_mobile_number()
+    Validator.collect_and_validate_password()

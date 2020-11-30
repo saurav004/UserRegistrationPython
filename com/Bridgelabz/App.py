@@ -76,8 +76,8 @@ class Validator:
 
 if __name__ == "__main__":
     print("Welcome to User Registration Program")
-    # Validator.collect_and_validate_first_name()
-    # Validator.collect_and_validate_last_name()
-    # Validator.collect_and_validate_email()
-    # Validator.collect_and_validate_mobile_number()
+    Validator.collect_and_validate_first_name()
+    Validator.collect_and_validate_last_name()
+    Validator.collect_and_validate_email()
+    Validator.collect_and_validate_mobile_number()
     Validator.collect_and_validate_password()

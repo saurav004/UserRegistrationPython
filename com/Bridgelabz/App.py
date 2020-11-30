@@ -7,6 +7,7 @@ class Validator:
     MOBILE_NUMBER_PATTERN = "^[+]{1}[0-9]{2}[ ][0-9]{10}"
     PASSWORD_PATTERN_RULE1 = "^[a-zA-Z0-9]{8,}$"
     PASSWORD_PATTERN_RULE2 = "^(?=.*[A-Z]).{8,}$"
+    PASSWORD_PATTERN_RULE3 = "^(?=.*[A-Z])(?=.*?[0-9]).{8,}$"
 
     @classmethod
     def collect_and_validate_first_name(cls):
@@ -67,7 +68,7 @@ class Validator:
         :rtype: void
         """
         password = input("Enter Password : ")
-        if re.fullmatch(Validator.PASSWORD_PATTERN_RULE2, password):
+        if re.fullmatch(Validator.PASSWORD_PATTERN_RULE3, password):
             print(f"Password Validated")
         else:
             print("Invalid Password !!!")

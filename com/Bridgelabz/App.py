@@ -12,7 +12,7 @@ class Validator:
 
     FIRST_AND_LAST_NAME_PATTERN = "^[A-Z]{1}[a-zA-Z]{2,30}$"
     EMAIL_PATTERN = "^[a-zA-Z][a-zA-Z0-9_\\-+]*[.]{0,1}[a-zA-Z0-9_\\-+]{1,}[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,}[.]{0,}[a-zA-Z]*$"
-    MOBILE_NUMBER_PATTERN = "^[+]{1}[0-9]{2}[ ][0-9]{10}"
+    MOBILE_NUMBER_PATTERN = "^[+]{1}[0-9]{2}[ ][6-9]{1}[0-9]{9}"
     PASSWORD_PATTERN_RULE1 = "^[a-zA-Z0-9]{8,}$"
     PASSWORD_PATTERN_RULE2 = "^(?=.*[A-Z]).{8,}$"
     PASSWORD_PATTERN_RULE3 = "^(?=.*[A-Z])(?=.*?[0-9]).{8,}$"
